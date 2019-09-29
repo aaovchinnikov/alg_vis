@@ -8,46 +8,23 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-        <header><h1>Визуализация алгоритмов и структур данных</h1></header>
-	<div class="layout">
-	<div class="globCol1">
-        <div>
-                    <ul class = "optionList">
-                        <li><p id="hdr">Структуры данных<p>
-                            <ul class = "optionList">
-                                <li id="variable">Переменная</li>
-                                <li id="array">Статический массив</li>
-                                <li id="structure">Структура</li>
-                                <li id="mfile">Файл</li>
-                                <li id="pointer">Указатель</li>
-                                <li id="muchness">Множество</li>
-                                <li id="mstack">Стек</li>
-                                <li id="mqueue">Очередь</li>
-				<li id="mlist">Двусвязный список</li>
-				<li id="binTree">Бинарное дерево</li>
-                     	    </ul>
-			<footer>&copy; Карелина Елена, Шорыгина Татьяна</footer>
-                    </ul>
-         </div> 
-	</div>
-	<div class="globCol3">
-<<<<<<< HEAD
-		<!--div class="empty"-->
-            <!--div class="fill" draggable="true"></div>
-        </div-->
-        <!--div class="empty"></div-->
-=======
-		<div class="empty">
-            <div class="fill" draggable="true"></div>
-        </div>
-        <div class="empty"></div>
->>>>>>> 7074de73b6b23423ee0a050d93f5c658a6045c39
-	</div>
-	<div class="globCol2">
-	<div id="dynMenu">
-		<ul id="options" class="optionList">Доступные действия</ul>
-	</div>
-	</div>
-	<script src="main.js"></script>
+<div id="header">
+    <h1>Визуализация алгоритмов и структур данных</h1>
+</div>
+
+<div id="navigation">
+    <button>Сохранить</button>
+    <button>Сбросить</button>
+</div>
+
+<div id="drawing">
+    <div id="outer-dropzone" class="dropzone"></div>
+    <!--div id="picturesCol"-->
+        <img id="yes-drop" class="drag-drop" src="variable.svg" width="100" height="70" alt="draw variable">
+    <!--/div-->
+</div>
+<div id="footer">footer</div>
+<script src="main.js" type="module"></script>
+<script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
 </body>
 </html>
