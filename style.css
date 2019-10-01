@@ -27,6 +27,8 @@ body {
     height: 590px;
     width: auto;
     overflow: hidden;
+    background-color: plum;
+    border-radius: 5px;
 }
 
 #picturesCol {
