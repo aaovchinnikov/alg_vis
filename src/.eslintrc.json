@@ -1,7 +1,0 @@
-{
-  "env": {"browser": true, "es6": true},
-  "parserOptions": {"sourceType": "module"},
-  "rules": {
-    "no-underscore-dangle": [2, {"allow": ["_id"]}]
-  }
-}
