@@ -36,11 +36,47 @@ body {
 
 .dropzone {
     background-color: white;
+    border: 4px black;
+    border-radius: 5px;
+    display: flex;
+    float: left;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0px auto 0px;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+    width: 80%;
+}
+
+.menu-draw {
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    float: left;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0px auto 0px;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+    width: 80%;
+}
+
+.primitives {
+    background-color: mediumorchid;
     border-radius: 5px;
     float: left;
-    margin: 0px auto 0px;
-    padding: 0px;
-    width: 80%;
     height: 100%;
-    transition: background-color 0.3s;
+    left: 0;
+    margin-top: 0;
+    overflow: auto;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    width: 20%;
 }
+
+.primitives-active {
+    transform: translateX(0%);
+}
+

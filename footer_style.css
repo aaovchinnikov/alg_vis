@@ -18,24 +18,27 @@
 .btn{
     border: 1px solid pink;
     background: none;
-    padding: 10px 20px;
-    font-size: 20px;
-    font-family: "montserrat";
     cursor: pointer;
+    font-family: "montserrat";
+    font-size: 20px;
     margin: 10px;
     transition: 0.8s;
+    padding: 10px 20px;
     position: relative;
     overflow: hidden;
   }
+
   .btn1,
   .btn2,
   .btn3,
-  .btn4 {
+  .btn4,
+  .btn5 {
         color: orchid;
         transition: color 0.2s linear;
   }
 
   .btn1:hover,
+  .btn5:hover,
   .btn2:hover{
     color: #fff;
   }
@@ -57,6 +60,7 @@
   }
 
   .btn1::before,
+  .btn5::before,
   .btn3::before{
     top: 0;
     border-radius: 0 0 50% 50%;
@@ -74,6 +78,7 @@
   }
 
   .btn1:hover::before,
+  .btn5:hover::before,
   .btn2:hover::before{
     height: 180%;
   }
