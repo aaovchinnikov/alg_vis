@@ -1,5 +1,7 @@
 var dragItem1 = document.getElementById("vr"); // Перетаскиваемая картинка
 var dragItem2 = document.getElementById("one_list"); // Перетаскиваемая картинка
+var dragItem3 = document.getElementById("tree_node"); // Перетаскиваемая картинка
+var dragItem4 = document.getElementById("array"); // Перетаскиваемая картинка
 var dropLoc = document.getElementById("outer-dropzone"); // Канва, на которую осуществляется перетаскивание
 
 dragItem1.ondragstart = function(event) {
@@ -12,6 +14,24 @@ dragItem1.ondragstart = function(event) {
 }
 
 dragItem2.ondragstart = function(event) {
+    /*Функция-обработчик события начала перетаскивания картинки
+    * Функция принимает на вход событие (event)
+    * Функция записывает перетаскиваемый элемент в событие
+    * Автор: Карелина Елена
+    */
+    event.dataTransfer.setData('key', event.target.id);
+}
+
+dragItem3.ondragstart = function(event) {
+    /*Функция-обработчик события начала перетаскивания картинки
+    * Функция принимает на вход событие (event)
+    * Функция записывает перетаскиваемый элемент в событие
+    * Автор: Карелина Елена
+    */
+    event.dataTransfer.setData('key', event.target.id);
+}
+
+dragItem4.ondragstart = function(event) {
     /*Функция-обработчик события начала перетаскивания картинки
     * Функция принимает на вход событие (event)
     * Функция записывает перетаскиваемый элемент в событие
