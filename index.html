@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Algorithm and structure visualisation</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="menu_style.css" />
+    <link rel="stylesheet" href="footer_style.css" />
+</head>
+
+<body>
+    <div class="operator">
+        <div id="header">
+            <h1>Режим оператора</h1>
+        </div>
+
+        <div id="drawing">
+            <div class="menu-draw">
+                <div class="primitives" id="graphPrimitieves">
+                    <ul class="editor">
+                        <li>
+                            <img id="rectangle" src="pictures/rect.svg" width="80" height="50" alt="draw variable">
+                        </li>
+                        <li>
+                            <img id="circule" src="pictures/circ.svg" width="100" height="70" alt="draw variable">
+                        </li>
+                        <li>
+                            <button class="btn btn5" id="qbutton">Готово</button>
+                        </li>
+                </div>
+                <div id="outer-dropzone" class="dropzone"></div>
+            </div>
+            <div id="picturesCol">
+                <ul class="menu" id="available-containers">
+                    <li>
+                        <!--Чтобы bullet не отрывалась от названия, тут стоит невидимый пробел между словом и bullet-->
+                        <div>&#9773;⠀Переменная</div>
+                        <img id="vr" src="pictures/variable.svg" width="100" height="70" alt="draw variable">
+                    </li>
+                    <li>
+                        <div>&#9773;⠀Однонаправленный список</div>
+                        <img id="one_list" src="pictures/stack_queue.svg" width="100" height="70" alt="draw variable">
+                    </li>
+                    <li>
+                        <div>&#9773;⠀Дерево</div>
+                        <img id="tree_node" src="pictures/tree_node.svg" width="100" height="70" alt="draw tree node">
+                    </li>
+                    <li>
+                        <div>&#9773;⠀Массив</div>
+                        <img id="array" src="pictures/try.svg" width="100" height="70" alt="draw array element">
+                    </li>
+                    <li>
+                        <div id="add_a_container">+ Создать новый контейнер</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <button class="btn btn2">Сбросить</button>
+                <button class="btn btn4" id="op_button">Выйти из режима оператора</button>
+            </div>
+        </div>
+    </div>
+    <script src="main.js" type="module"></script>
+    <script src="ncontainer.js" type="module"></script>
+    <script src="delete_container.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+body {
+    font: 10pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
+    background: rgb(138, 102, 138); /* Цвет фона */
+    color: whitesmoke;
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.operator {
+    height: 100vh;
+    width: 100%;
+}
+
+#header {
+    background-color: pink;
+    border-radius: 5px;
+    color: white;
+    height: 10%;
+    padding: 4px;
+    text-align: center;
+}
+
+#drawing {
+    height: 80%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button:hover{
+    background: rgb(255, 163, 88);
+}
+
+.dropzone {
+    background-color: white;
+    border: 4px black;
+    border-radius: 5px;
+    display: flex;
+    float: left;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0px auto 0px;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+    width: 80%;
+}
+
+.menu-draw {
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    float: left;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0px auto 0px;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+    width: 80%;
+}
+
+.primitives {
+    background-color: mediumorchid;
+    border-radius: 5px;
+    float: left;
+    height: 100%;
+    left: 0;
+    margin-top: 0;
+    overflow: auto;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    width: 20%;
+}
+
+.primitives-active {
+    transform: translateX(0%);
+}
+
