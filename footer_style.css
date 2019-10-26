@@ -1,3 +1,4 @@
+/*Стиль нижнего прямоугольника*/
 #footer {
     background-color: pink;
     height: 10%;
@@ -15,6 +16,7 @@
     width: 100%;
 }
 
+/*Стиль кноки*/
 .btn{
     border: 1px solid pink;
     background: none;

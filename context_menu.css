@@ -1,0 +1,35 @@
+.context-menu {
+    display: none;
+    background-color: lightgoldenrodyellow;
+    border: solid 1px maroon;
+    box-shadow: 1px 1px 2px #cfcfcf;
+    font-family: "montserrat";
+    font-size: 14px;
+    height: 50px;
+    padding: 12px 0;
+    position: absolute;
+    width: 200px;
+    z-index: 10;
+}
+
+.context-menu--active {
+    display: block;
+}
+
+.context-menu__items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.context-menu__link {
+    display: block;
+    color: darkorchid;
+    padding: 4px 12px;
+    text-decoration: none;
+}
+
+.context-menu__link:hover {
+    color: #fff;
+    background-color: bisque;
+}

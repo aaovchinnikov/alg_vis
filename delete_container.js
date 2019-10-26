@@ -1,14 +1,203 @@
-let containerMenu = document.getElementById('available-containers');
-let allPoints = containerMenu.querySelectorAll('li');
+let menu = document.getElementById('my-menu'); // Переменная контекстного меню
+let menuState = 0; // Переменная состояния контекстного меню (видно или не видно, по умолчанию не видно)
+let activeClassName = "context-menu--active" // Название класса для включения выидимости контекстного меню
+let taskItemClassName = 'menu'; // Название класа меню
+let menuPosition = 0; // Переменная для позиционирования контекстного меню
+let menuPositionX = 0; // Переменная для координаты X контекстного меню
+let menuPositionY = 0; // Переменная для координаты Y контекстного меню
+let windowWidth = 0; // Переменная для хранения ширины окна
+let windowHeight = 0; // Переменная для хранения высоты окна
+let clickCoords; // Переменная для хранения координат, на которых был совершен клик
+let clickCoordsX; // Переменная для хранения координаты X, на которых был совершен клик
+let clickCoordsY; // Переменная для хранения координаты Y, на которых был совершен клик
+let deleteContainer = document.getElementById("delete-container"); // Переменная кнопки контекстного меню "Удалить контейнер"
+let elementForDelete = ''; // ID удаляемого контейнера
 
-for (let i = 0; i < allPoints.length - 1; i++) {
-    let curContainer = allPoints[i];
-    curContainer.addEventListener("contextmenu", deleteContainer);
+// Добавление обработчика события правого клика на всей странице
+document.addEventListener( "contextmenu", function(event) {
+    /* Функция обработчик события нажатия на правую кнопку мыши на всей странице
+    * Отключает дефолтный обработчик в случае, если было произведено нажатие на список контейнеров
+    * Принимает на вход событие
+    * Автор: Елена Карелина
+     */
+    if (clickInsideElement(event, taskItemClassName)) { // Вызов функции проверки того, что нажатие было совершено в области списка контейнеров
+        event.preventDefault(); // Отключение дефолтного обработчика
+        toggleMenuOn(); // Вызов функции для включения видимости контекстного меню
+    }
+});
+
+// Добавление обработчика события нажатия на левую клавишу мыши на всей странице
+document.addEventListener( "click", function(event) {
+    /*Функция-обработчик события нажатия на левую клавишу
+    * Отключает видимость контекстного меню в случае, если произошло нажатие на левую клавишу
+    * Принимает на вход событие, ничего не возвращает
+    * Автор: Елена Карелина
+     */
+    var button = event.which || event.button; // Проверка того, что действительно произошло нажатие на левую кнопку мыши
+    if (button === 1) {
+        toggleMenuOff(); // Вызов функции для выключения видимости контекстного меню
+    }
+});
+
+// Добавление обработчика события нажатия на клавишу escape
+window.onkeyup = function(event) {
+    /*Функция-обработчик события нажатия на клавишу escape
+    * Отключает видимость контекстного меню в случае, если произошло нажатие на клавишу escape
+    * Принимает на вход событие, ничего не возвращает
+    * Автор: Елена Карелина
+     */
+    if (event.keyCode === 27) { //Проверка того, что код нажатой клавиши равен коду escape
+        toggleMenuOff(); // Вызов функции для выключения видимости контекстного меню
+    }
 }
 
-function deleteContainer(event) {
-    event.preventDefault();
-    let deletedContainer = document.getElementById(event.target.id);
-    console.log(deletedContainer);
-    containerMenu.removeChild(deletedContainer);
+// Добавление обработчика события изменения размера окна
+window.onresize = function(event) {
+    /*Функция-обработчик события изменения размеров окна
+    * Отключает видимость контекстного меню в случае, если произошло изменение размеров окна
+    * Принимает на вход событие, ничего не возвращает
+    * Автор: Елена Карелина
+     */
+    toggleMenuOff(); // Вызов функции для выключения видимости контекстного меню
+};
+
+function clickInsideElement(event, className) {
+    /* Функция проверки того, что нажатие на правую клавишу произошло в области меню контейнеров
+    * Принимает на вход событие и имя класса списка контейнера
+    * Возвращает объект-список контейнеров в случае, если нажатие было произведено в область списка
+    * В противном случае возвращает false
+    * Автор: Елена Карелина
+     */
+    let el = event.srcElement || event.target; // Получение элемента, на который был произведен правый клик
+    if (el.id === 'add_a_container') { // Если нажали на пункт "Добавить контейнер", то отключаем дефолтный обработчик
+        // и не включаем контекстное меню
+        event.preventDefault();
+        return false;
+    }
+    if (el.classList.contains(className)) { // Если нажали на общий список ul, сразу его возвращаем
+        return el;
+    } else { //Ищем родительский элемент элемента
+        do {
+            if (el.tagName === 'LI') // Если встретился элемент списка типа li, запоминаем его ID, по которому потом будем удалять
+                elementForDelete = el.id;
+            if (el.classList && el.classList.contains(className)) { // Если встретили список ul нужного класса (который хранит контейнеры),
+                // возвращаем его
+                return el;
+            }
+        }while (el = el.parentNode); //До тех пор, пока не дойдем до последнего родительского элемента
+    }
+    return false; // Сюда попадаем только в том случае, если нажатый элемент не принадлежит нужному списку, возвращаем false
+}
+
+//Добавление обработчика события нажатия на правую кнопку
+document.addEventListener( "contextmenu", function(event) {
+    /* Функция-обработчик события нажатия на правую кнопку в любом месте документа
+    * Функция показывает контекстное меню в месте, где было произвдено нажатие, в случае, если нажатие было произведено в области списка
+    * В противном случае функция убирает контекстное меню
+    * Функция принимает на вход событие, ничего не возвращает
+    * Автор: Елена Карелина
+     */
+    if (clickInsideElement(event, taskItemClassName)) { //Проверка, что нажатие правой клавиши было на объект списка контейнера
+        event.preventDefault(); // Отключение дефолтного обработчика
+        toggleMenuOn(); // Вызов функции показа контекстного меню
+        positionMenu(event); // Вызов функции позиционирования меню
+    } else { //Если нажатие было не по списку
+        toggleMenuOff(); // Отключаем видимость контекстного меню
+    }
+    });
+
+function toggleMenuOff() {
+    /* Функция делает контекстное меню невидимым
+    * Принимаемые параметры: нет
+    * Возвращаемые параметры: нет
+    * Автор: Елена Карелина
+     */
+    if ( menuState !== 0 ) {
+        menuState = 0;
+        menu.classList.remove(activeClassName);
+    }
+}
+
+function toggleMenuOn() {
+    /* Функция делает контекстное меню видимым
+    * Принимаемые параметры: нет
+    * Возвращаемые параметры: нет
+    * Автор: Елена Карелина
+     */
+    if (menuState !== 1) {
+        menuState = 1;
+        menu.classList.add(activeClassName);
+    }
+}
+
+function getPosition(e) {
+    /* Функция расчета координат стрелки при нажатии правой клавиши
+    * Принимаемые параметры: событие
+    * Возвращаемые параметры: координаты стрелки в окне при нажатии
+    * Автор: Елена Карелина
+     */
+    let posX = 0;
+    let posY = 0;
+    // Если пришло пустое событие, присваиваем текущее событие окна
+    if (!e) var e = window.event;
+
+    if (e.pageX || e.pageY) { //Если обе абсолютные координаты не 0, возвращаем их значения
+        posx = e.pageX;
+        posy = e.pageY;
+    } else if (e.clientX || e.clientY) { // В проивном случае вычисляем координаты через клиентские координаты и прокрутку страницы
+        posx = e.clientX + document.body.scrollLeft +
+            document.documentElement.scrollLeft;
+        posy = e.clientY + document.body.scrollTop +
+            document.documentElement.scrollTop;
+    }
+    // Возвращение координат стрелки
+    return {
+        x: posx,
+        y: posy
+    }
+}
+
+function positionMenu(event) {
+    /* Функция, позиционирующая контекстное меню
+    * Принимаемые параметры: событие
+    * Возвращаемые параметры: нет
+    * Автор: Елена Карелина
+     */
+    clickCoords = getPosition(event); // Вычисление координат мыши
+    clickCoordsX = clickCoords.x;
+    clickCoordsY = clickCoords.y;
+
+    menuWidth = menu.offsetWidth + 4; //Вычисление размеров контекстного меню и добавление 4 пикселей зазора между ним и краем окна
+    menuHeight = menu.offsetHeight + 4;
+
+    windowWidth = window.innerWidth; // Вычисление размеров окна браузера
+    windowHeight = window.innerHeight;
+
+    if ( (windowWidth - clickCoordsX) < menuWidth ) { // Проверка того, что меню целиком помещается в окно по ширине
+        menu.style.left = windowWidth - menuWidth + "px"; // Если не помещается, присваиваем координате X значение, равное
+        // ширине меню + зазор
+    } else {
+        menu.style.left = clickCoordsX + "px"; // Иначе присваиваем значение координаты мыши
+    }
+
+    if ( (windowHeight - clickCoordsY) < menuHeight ) { // Проверка того, что меню целиком помещается в окно по высоте
+        menu.style.top = windowHeight - menuHeight + "px"; // Если не помещается, присваиваем координате Y значение, равное
+        // высоте меню + зазор
+    } else {
+        menu.style.top = clickCoordsY + "px"; // Иначе присваиваем значение координаты мыши
+    }
+}
+
+deleteContainer.onclick = function(event) {
+    /* Функция-обработчик события нажатия на кнопку "Удалить контейнер" контекстного меню
+    * Принимаемые параметры: событие
+    * Возвращаемые параметры: нет
+    * Функция удаляет выбранный контейнер из списка
+    * Автор: Елена Карелина
+     */
+    let deletedContainer = document.getElementById(elementForDelete); // Записываем в переменную элемент списка, который необходимо удалить
+    // его ID был сохранен в функции clickInsideElement
+    let containerMenu = document.getElementById('available-containers');
+    containerMenu.removeChild(deletedContainer); //Удаляем элемент списка
+    elementForDelete = ''; // Затираем ID удаленного элемента списка
 }
