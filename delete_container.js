@@ -10,6 +10,5 @@ function deleteContainer(event) {
     event.preventDefault();
     let deletedContainer = document.getElementById(event.target.id);
     console.log(deletedContainer);
-    //containerMenu.removeChild(deletedContainer);
-    alert('here!');
+    containerMenu.removeChild(deletedContainer);
 }
