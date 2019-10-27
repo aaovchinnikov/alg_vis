@@ -2,8 +2,6 @@ let addButton = document.getElementById("add_a_container"); //Кнопка дл�
 let finishButton = document.getElementById("qbutton"); //кнопка для исчезновения менб с графическими примитивами
 let graphEditor = document.getElementById("graph-primitives"); // Меню графических примитивов
 let allPictures = graphEditor.querySelectorAll('img');
-/*let dragItem1 = document.getElementById("rectangle"); // Перетаскиваемая картинка
-let dragItem2 = document.getElementById("circule"); // Перетаскиваемая картинка*/
 let dropLoc = document.getElementById("outer-dropzone"); // Канва, на которую осуществляется перетаскивание
 
 // Добавление к каждой картинке обработчика события начала перетаскивания
@@ -30,24 +28,6 @@ finishButton.onclick = function(event) {
     event.preventDefault();
     graphEditor.classList.remove("primitives-active");
 }
-
-/*dragItem1.ondragstart = function(event) {
-    /*Функция-обработчик события начала перетаскивания картинки
-    * Функция принимает на вход событие (event)
-    * Функция записывает перетаскиваемый элемент в событие
-    * Автор: Карелина Елена
-
-    event.dataTransfer.setData('key', event.target.id);
-}
-
-dragItem2.ondragstart = function(event) {
-    /*Функция-обработчик события начала перетаскивания картинки
-    * Функция принимает на вход событие (event)
-    * Функция записывает перетаскиваемый элемент в событие
-    * Автор: Карелина Елена
-
-    event.dataTransfer.setData('key', event.target.id);
-}*/
 
 dropLoc.ondragover = function(event) {
     /*Функция-обработчик события попадания картинки на канву
