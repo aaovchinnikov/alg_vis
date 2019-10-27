@@ -34,9 +34,9 @@ dropLoc.ondrop = function(event) {
     * Автор: Елена Карелина
     */
     event.preventDefault();
-    var dropItem = event.dataTransfer.getData('key'); //Получение информации о перетаскиваемой картинке
-    var droppedElement = document.getElementById(dropItem);
-    var newElement = document.createElement('img'); //Создание картинки на канве
+    let dropItem = event.dataTransfer.getData('key'); //Получение информации о перетаскиваемой картинке
+    let droppedElement = document.getElementById(dropItem);
+    let newElement = document.createElement('img'); //Создание картинки на канве
     //Задание размеров картинки
     newElement.style.height = "70px";
     newElement.style.width = "100px";
@@ -45,10 +45,12 @@ dropLoc.ondrop = function(event) {
     clickCoords = getPosition(event); // Вычисление координат мыши
     clickCoordsX = clickCoords.x;
     clickCoordsY = clickCoords.y;
-    newElement.style.left = clickCoordsX + 'px';
-    newElement.style.top = clickCoordsY + 'px';
+    console.log('here');
+    console.log(clickCoordsY)
+    newElement.style.position = 'absolute';
+    newElement.style.left = event.pageX - newElement.offsetWidth/2 + 'px';
+    newElement.style.top = event.pageY - newElement.offsetHeight/2 + 'px';
     //Задание идентификатора для картинки
     newElement.classList.add('drag-drop');
-    newElement.id = 'var1'
     dropLoc.appendChild(newElement); //Присоединение картинки к родительскому элементу-канве
 }
