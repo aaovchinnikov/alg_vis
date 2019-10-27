@@ -20,13 +20,18 @@ function transferId(event) {
 }
 
 addButton.onclick = function(event) {
-    event.preventDefault();
-    graphEditor.classList.add("primitives-active");
+    /* Функция-обработчик нажатия на кнопку добавления контейнера
+    * Делает видимым меню с графическими примитивами
+    * Принимает на вход событие, ничего не возвращает
+    * Автор: Елена Карелина
+     */
+    event.preventDefault(); // Отключение дефолтного обработчика
+    graphEditor.classList.add("primitives-active"); // Добавление к списку классов класса, в котором прописана полная видимость меню
 }
 
 finishButton.onclick = function(event) {
-    event.preventDefault();
-    graphEditor.classList.remove("primitives-active");
+    event.preventDefault(); // Отключение дефолтного обработчика
+    graphEditor.classList.remove("primitives-active"); // Удаление из списка классов класса, в котором прописана полная видимость меню
 }
 
 dropLoc.ondragover = function(event) {
