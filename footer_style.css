@@ -30,6 +30,7 @@
     overflow: hidden;
   }
 
+    .btn-ref,
   .btn1,
   .btn2,
   .btn3,
@@ -37,6 +38,7 @@
   .btn5 {
         color: orchid;
         transition: color 0.2s linear;
+        text-decoration: none;
   }
 
   .btn1:hover,
@@ -46,7 +48,8 @@
   }
 
   .btn3:hover,
-  .btn4:hover{
+  .btn4:hover,
+  .btn-ref:hover {
     color: #fff;
   }
 
@@ -69,27 +72,35 @@
   }
 
   .btn2::before,
-  .btn4::before{
+  .btn4::before,
+  .btn-ref::before {
     bottom: 0;
     border-radius: 50% 50% 0 0;
   }
 
   .btn3::before,
-  .btn4::before{
+  .btn4::before,
+  .btn-ref {
     height: 180%;
   }
 
   .btn1:hover::before,
   .btn5:hover::before,
-  .btn2:hover::before{
+  .btn2:hover::before {
     height: 180%;
   }
 
   .btn3:hover::before,
-  .btn4:hover::before{
+  .btn4:hover::before
+  .btn-ref:hover::before{
     height: 0%;
   }
   
   #op_button {
     float: right;
   }
+
+  /*.btn-ref {
+      color: orchid;
+      text-decoration: none;
+  }*/

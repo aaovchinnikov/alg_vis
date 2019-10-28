@@ -45,11 +45,11 @@ dropLoc.ondrop = function(event) {
     clickCoords = getPosition(event); // Вычисление координат мыши
     clickCoordsX = clickCoords.x;
     clickCoordsY = clickCoords.y;
-    console.log('here');
-    console.log(clickCoordsY)
-    newElement.style.position = 'absolute';
+    console.log(droppedElement.left);
+    console.log(event.pageX)
     newElement.style.left = event.pageX - newElement.offsetWidth/2 + 'px';
     newElement.style.top = event.pageY - newElement.offsetHeight/2 + 'px';
+    newElement.style.position = 'absolute';
     //Задание идентификатора для картинки
     newElement.classList.add('drag-drop');
     dropLoc.appendChild(newElement); //Присоединение картинки к родительскому элементу-канве
