@@ -42,9 +42,6 @@ dropLoc.ondrop = function(event) {
     newElement.style.width = "100px";
     newElement.src = droppedElement.src; //Подключение файла-источника svg
     //Задание координат картинки
-    clickCoords = getPosition(event); // Вычисление координат мыши
-    clickCoordsX = clickCoords.x;
-    clickCoordsY = clickCoords.y;
     console.log(droppedElement.left);
     console.log(event.pageX)
     newElement.style.left = event.pageX - newElement.offsetWidth/2 + 'px';

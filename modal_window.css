@@ -2,7 +2,7 @@
     background-color: rgba(255, 0, 255, 0.5);
     border: black solid 1px;
     display: none;
-    height: 20%;
+    height: 25%;
     left: 30%;
     overflow: hidden;
     position: fixed;
@@ -13,7 +13,7 @@
 .hint {
     font-size: 14pt;
     height: 15%;
-    margin-top: 0%;
+    margin-top: 5%;
     margin-left: 15%;
     margin-right: 15%;
     width: 70%;
@@ -23,12 +23,33 @@
     height: 15%;
     margin-left: 20%;
     margin-right: 20%;
-    margin-top: 15%;
+    margint-top: 5%;
     width: 60%;
 }
 
 .confirm {
-    background-color: whitesmoke;
+    background-color: lightpink;
     color: orchid;
     float: right;
+    height: 10%;
+    margin-top: 5%;
+}
+
+.confirm:hover {
+    background-color: darksalmon;
+    cursor: default;
+}
+
+#cross1 {
+    background-color: tomato;
+    float: right;
+    font-size: 14pt;
+    height: 10%;
+    margin-top: 0%;
+}
+
+#cross1:hover {
+    background-color: whitesmoke;
+    color: tomato;
+    cursor: default;
 }

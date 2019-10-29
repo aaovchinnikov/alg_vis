@@ -145,10 +145,8 @@ function getPosition(e) {
         posX = e.pageX;
         posY = e.pageY;
     } else if (e.clientX || e.clientY) { // В проивном случае вычисляем координаты через клиентские координаты и прокрутку страницы
-        posX = e.clientX + document.body.scrollLeft +
-            document.documentElement.scrollLeft;
-        posY = e.clientY + document.body.scrollTop +
-            document.documentElement.scrollTop;
+        posX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+        posY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
     }
     // Возвращение координат стрелки
     return {
