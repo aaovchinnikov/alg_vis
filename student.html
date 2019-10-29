@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="menu_style.css" />
     <link rel="stylesheet" href="footer_style.css" />
     <link rel="stylesheet" href="context_menu.css" />
+    <link rel="stylesheet" href="modal_window.css" />
 </head>
 
 <body>
@@ -34,7 +35,7 @@
                 </div>
                 <div id="outer-dropzone" class="dropzone"></div>
             </div>
-            <div id="picturesCol">
+            <div id="picturesCol1">
                 <ul class="menu" id="available-containers">
                     <li id="cont1" class="one-container">
                         <!--Чтобы bullet не отрывалась от названия, тут стоит невидимый пробел между словом и bullet-->
@@ -67,8 +68,6 @@
             </div>
         </div>
     </div>
-    <script src="main.js" type="module"></script>
-    <script src="ncontainer.js" type="module"></script>
     <!-- Контекстное меню для удаления-->
     <nav class="context-menu" id="my-menu">
         <ul class="context-menu__items">
@@ -84,7 +83,16 @@
             </li>
         </ul>
     </nav>
-    <script src="delete_container.js"></script>
+    <!-- Диалоговое окно для ввода информации о контейнере-->
+    <div class="dialog-add" id="modal-window">
+        <div class="hint">Название контейнера</div>
+        <input class="input-str" id="str-inp1" type="text">
+        <btn class="confirm" id="conf">OK</btn>
+    </div>
+    <!-- подключение скриптов-->
+    <script src="main.js" type="module"></script>
+    <script src="ncontainer.js" type="module"></script>
+    <script src="delete_container.js" type="module"></script>
 </body>
 
 </html>

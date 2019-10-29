@@ -142,18 +142,18 @@ function getPosition(e) {
     if (!e) var e = window.event;
 
     if (e.pageX || e.pageY) { //Если обе абсолютные координаты не 0, возвращаем их значения
-        posx = e.pageX;
-        posy = e.pageY;
+        posX = e.pageX;
+        posY = e.pageY;
     } else if (e.clientX || e.clientY) { // В проивном случае вычисляем координаты через клиентские координаты и прокрутку страницы
-        posx = e.clientX + document.body.scrollLeft +
+        posX = e.clientX + document.body.scrollLeft +
             document.documentElement.scrollLeft;
-        posy = e.clientY + document.body.scrollTop +
+        posY = e.clientY + document.body.scrollTop +
             document.documentElement.scrollTop;
     }
     // Возвращение координат стрелки
     return {
-        x: posx,
-        y: posy
+        x: posX,
+        y: posY
     }
 }
 
@@ -167,8 +167,8 @@ function positionMenu(event) {
     clickCoordsX = clickCoords.x;
     clickCoordsY = clickCoords.y;
 
-    menuWidth = menu.offsetWidth + 4; //Вычисление размеров контекстного меню и добавление 4 пикселей зазора между ним и краем окна
-    menuHeight = menu.offsetHeight + 4;
+    let menuWidth = menu.offsetWidth + 4; //Вычисление размеров контекстного меню и добавление 4 пикселей зазора между ним и краем окна
+    let menuHeight = menu.offsetHeight + 4;
 
     windowWidth = window.innerWidth; // Вычисление размеров окна браузера
     windowHeight = window.innerHeight;

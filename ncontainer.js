@@ -2,6 +2,11 @@ let addButton = document.getElementById("add_a_container"); //Кнопка дл�
 let finishButton = document.getElementById("qbutton"); //кнопка для исчезновения менб с графическими примитивами
 let graphEditor = document.getElementById("graph-primitives"); // Меню графических примитивов
 let allPictures = graphEditor.querySelectorAll('img');
+let modalWindow = document.getElementById("modal-window");
+let confButton = document.getElementById("conf");
+let inputName = document.getElementById("str-inp1")
+let containerName = ''
+let baseList = document.getElementById("available-containers")
 
 // Добавление к каждой картинке обработчика события начала перетаскивания
 for(let i = 0; i < allPictures.length; i++) {
@@ -25,10 +30,22 @@ addButton.onclick = function(event) {
     * Автор: Елена Карелина
      */
     event.preventDefault(); // Отключение дефолтного обработчика
-    graphEditor.classList.add("primitives-active"); // Добавление к списку классов класса, в котором прописана полная видимость меню
+    modalWindow.style.display = 'block'
 }
 
 finishButton.onclick = function(event) {
     event.preventDefault(); // Отключение дефолтного обработчика
     graphEditor.classList.remove("primitives-active"); // Удаление из списка классов класса, в котором прописана полная видимость меню
+    let tmp = document.createElement("li");
+    tmp.innerHTML = "&#9773; " + containerName;
+    tmp.classList.add("one-container")
+    tmp.id = containerName
+    baseList.prepend(tmp)
+    //baseList.appendChild(tmp);
+}
+
+confButton.onclick = function() {
+    containerName = inputName.value;
+    modalWindow.style.display = "none";
+    graphEditor.classList.add("primitives-active"); // Добавление к списку классов класса, в котором прописана полная видимость меню
 }
