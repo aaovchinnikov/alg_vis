@@ -1,0 +1,82 @@
+.button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+
+.button:hover {
+    -webkit-box-shadow: 0px 0px 5px rgba(255,255,255,0.9);
+    box-shadow: 0px 0px 7px rgba(255,255,255,0.9);
+    background-color: rgb(233, 170, 233);
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.modal {
+    color: black;
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation-name: modalopen;
+    animation-duration: 1s;
+}
+
+.modal-content {
+    background-color: #f4f4f4;
+    margin: 10% auto;
+    width: 50%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0, 0.17); 
+}
+
+.modal-header{
+    background: rgb(212, 154, 212);
+    padding: 15px;
+    color: #fff;
+}
+
+.modal-header h2{
+    margin: 0;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    background: rgb(212, 154, 212);
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+.closeBtn {
+    color: #fff;
+    float: right;
+    font-size: 30px;
+}
+
+.closeBtn:hover, .closeBtn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#deleteBtn, #editBtn {
+    color: #000;
+}
+
+@keyframes modalopen {
+    from{opacity : 0}
+    to{opacity: 1}
+}
