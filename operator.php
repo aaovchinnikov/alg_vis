@@ -46,8 +46,10 @@ require_once 'include/database.php';
                         ?>
                         <li class="one-container" id=<?=$id?>><div>&#9773; <?=$container["container_name"]?></div></li>
                     <?php endforeach; ?>
+                </ul>
+                <ul class="menu">
                     <li>
-                        <div id="add_a_container">+ Создать новый контейнер</div>
+                        <div id="add_a_container" class="one-container">+ Создать новый контейнер</div>
                     </li>
                 </ul>
             </div>
