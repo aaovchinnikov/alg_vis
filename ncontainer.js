@@ -56,12 +56,13 @@ finishButton.onclick = function(event) {
         */
         if (xhr.readyState == 4) { // Ответ пришёл
             if(xhr.status == 200) { // Сервер вернул код 200 (что хорошо)
-                if(xhr.responseText === "1") { // Если добавление в БД было произведено корректно, добавляем контейнер в интерфейс
+                let results = xhr.responseText.split(' ');
+                if (results[0] === "1") { // Если добавление в БД было произведено корректно, добавляем контейнер в интерфейс
                     let tmp = document.createElement("li"); // Создание нового элемента списка
                     tmp.innerHTML = "&#9773; " + containerName; // Добавление текста - введенного имени контейнера
                     tmp.classList.add("one-container"); // Назначение элементу класса элемента списка контейнеров
-                    tmp.id = containerName; // Назначение элементу id
-                    baseList.prepend(tmp) // Присоединение элемента к списку (в начало)
+                    tmp.id = results[1]; // Назначение элементу id
+                    baseList.appendChild(tmp) // Присоединение элемента к списку (в конец, как лежит в БД)
                 }
                 else {
                     alert('При добавлении в базу данных произошла ошибка');

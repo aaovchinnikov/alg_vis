@@ -193,9 +193,29 @@ deleteContainer.onclick = function(event) {
     * Функция удаляет выбранный контейнер из списка
     * Автор: Елена Карелина
      */
-    let deletedContainer = document.getElementById(elementForDelete); // Записываем в переменную элемент списка, который необходимо удалить
-    // его ID был сохранен в функции clickInsideElement
-    let containerMenu = document.getElementById('available-containers');
-    containerMenu.removeChild(deletedContainer); //Удаляем элемент списка
-    elementForDelete = ''; // Затираем ID удаленного элемента списка
+    let xhr = new XMLHttpRequest(); // Создание нового HTTP запроса к серверу
+    xhr.open("POST", "include/delete_cont.php", true); // Определение типа и адреса запроса
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Передача кодировки информации
+    xhr.send('id=' + encodeURIComponent(elementForDelete));
+    xhr.onreadystatechange = function() { // Ждём ответа от сервера
+        /* Функция-обработчик события получения ответа от сервера
+        * В случае подтверждения сервером удачного добавления в БД добавляет имя контейнера в интерфейс
+        * Ничего не принимает, ничего не возвращает
+        * Автор: Елена Карелина
+        */
+        if (xhr.readyState == 4) { // Ответ пришёл
+            if(xhr.status == 200) { // Сервер вернул код 200 (что хорошо)
+                if(xhr.responseText === "1") { // Если добавление в БД было произведено корректно, добавляем контейнер в интерфейс
+                    let deletedContainer = document.getElementById(elementForDelete); // Записываем в переменную элемент списка, который необходимо удалить
+                    // его ID был сохранен в функции clickInsideElement
+                    let containerMenu = document.getElementById('available-containers');
+                    containerMenu.removeChild(deletedContainer); //Удаляем элемент списка
+                    elementForDelete = ''; // Затираем ID удаленного элемента списка
+                }
+                else {
+                    alert('При удалении из базы данных произошла ошибка');
+                }
+            }
+        }
+    };
 }
