@@ -85,6 +85,8 @@ confButton.onclick = function() {
         containerDescription = inputDescription.value;
         modalWindow.style.display = "none"; // Отключаем видимость модального окна
         graphEditor.classList.add("primitives-active"); // Добавление к списку классов класса, в котором прописана полная видимость меню
+        inputName.value = '';
+        inputDescription.value = '';
     }
 }
 
@@ -94,5 +96,7 @@ close.onclick = function() {
    * Ничего не принимает, ничего не возвращает
    * Автор: Елена Карелина
     */
+    inputName.value = '';
+    inputDescription.value = '';
     modalWindow.style.display = "none";
 }
