@@ -14,7 +14,14 @@ echo $xml_code;
 $xml_code = str_replace('xmlns=', 'ns=', $xml_code);
 $parse = new SimpleXMLElement($xml_code);
 echo PHP_EOL;
-print_r($parse->xpath("//switch[text = 'input_a']/text"));
+//print_r($parse->xpath("//switch[text = 'input_a']/text"));
+$parse->xpath("//switch[text = 'input_a']/text")[0]["fill"] = "#FF0000";
+/*print_r($texts[0]["fill"]);
+foreach($texts as $text) {
+    $text["fill"] = "#FF0000";
+    //print_r($text["fill"]);
+}*/
+echo $parse->asXML();
 //print_r($parse->g->g->switch->text);
 /*$parse->registerXPathNamespace('svg', 'http://www.w3.org/2000/svg');
 $parse->registerXPathNamespace('xlink', 'http://www.w3.org/1999/xlink');
