@@ -16,7 +16,10 @@ $parse = new SimpleXMLElement($xml_code);
 echo PHP_EOL;
 $interactive_elements = $parse->xpath("//div[font = 'input_a']");
 foreach($interactive_elements as $cur_elem) {
-    $cur_elem["style"] = preg_replace('/[#][A-F | 0-9]{6}/', "#FF0000", $cur_elem["style"]);
+    $group = $cur_elem->xpath("(ancestor::g[1]/preceding-sibling::*)[last()]");
+    $group[0]["stroke"] = "#0066FF";
+    //print_r($group/*[0]->xpath("preceding-sibling::rect")*/);
+    $cur_elem["style"] = preg_replace('/[#][A-F|0-9]{6}/', "#FF0000", $cur_elem["style"]);
     /*print_r($cur_elem);
     echo PHP_EOL;*/
 }
