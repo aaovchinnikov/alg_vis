@@ -14,10 +14,14 @@ echo $xml_code;
 $xml_code = str_replace('xmlns=', 'ns=', $xml_code);
 $parse = new SimpleXMLElement($xml_code);
 echo PHP_EOL;
-$tmp = $parse->xpath("//div[font = 'input_a']")[0]["style"];
-echo $tmp. PHP_EOL;
-$parse->xpath("//div[font = 'input_a']")[0]["style"] = preg_replace('/[#][A-F | 0-9]{6}/', "#FF0000", $tmp);
-print_r($parse->xpath("//div[font = 'input_a']")[0]["style"]);
+$interactive_elements = $parse->xpath("//div[font = 'input_a']");
+foreach($interactive_elements as $cur_elem) {
+    $cur_elem["style"] = preg_replace('/[#][A-F | 0-9]{6}/', "#FF0000", $cur_elem["style"]);
+    /*print_r($cur_elem);
+    echo PHP_EOL;*/
+}
+//$parse->xpath("//div[font = 'input_a']")[0]["style"] = preg_replace('/[#][A-F | 0-9]{6}/', "#FF0000", $tmp);
+//print_r($parse->xpath("//div[font = 'input_a']")[0]["style"]);
 print_r($parse->asXML());
 //$parse->xpath("//switch[text = 'input_a']/text")[0] = "8";
 //print_r($parse->xpath("//switch[text = 'input_a']/text")[0]);
