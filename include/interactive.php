@@ -14,14 +14,19 @@ echo $xml_code;
 $xml_code = str_replace('xmlns=', 'ns=', $xml_code);
 $parse = new SimpleXMLElement($xml_code);
 echo PHP_EOL;
-//print_r($parse->xpath("//switch[text = 'input_a']/text"));
-$parse->xpath("//switch[text = 'input_a']/text")[0]["fill"] = "#FF0000";
+$tmp = $parse->xpath("//div[font = 'input_a']")[0]["style"];
+echo $tmp. PHP_EOL;
+$parse->xpath("//div[font = 'input_a']")[0]["style"] = preg_replace('/[#][A-F | 0-9]{6}/', "#FF0000", $tmp);
+print_r($parse->xpath("//div[font = 'input_a']")[0]["style"]);
+print_r($parse->asXML());
+//$parse->xpath("//switch[text = 'input_a']/text")[0] = "8";
+//print_r($parse->xpath("//switch[text = 'input_a']/text")[0]);
 /*print_r($texts[0]["fill"]);
 foreach($texts as $text) {
     $text["fill"] = "#FF0000";
     //print_r($text["fill"]);
 }*/
-echo $parse->asXML();
+//echo $parse->asXML();
 //print_r($parse->g->g->switch->text);
 /*$parse->registerXPathNamespace('svg', 'http://www.w3.org/2000/svg');
 $parse->registerXPathNamespace('xlink', 'http://www.w3.org/1999/xlink');
