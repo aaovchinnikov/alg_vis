@@ -4,9 +4,7 @@ let confButton1 = document.getElementById("conf1"); // Button OK of the modal wi
 let inputName1 = document.getElementById("str-inp-alg-name"); // String input for inputting an algorithm's name
 let inputDescription1 = document.getElementById("str-inp-alg-info"); // String input for inputting the algorithm's descriprion
 let inputDifficulty = document.getElementById("str-inp-alg-dif"); // String input for inputting the algorithm's difficulty
-let algName = ''; // Let for keeping the algorithm's name which has been input
-let algDesrcription = ''; // Let for keeping the algorithm's description which has been input
-let algDifficulty = ''; // Let for keeping the algorithm's difficulty which has been input
+let checkboxInteractive = document.getElementById("inp-alg-inter"); // Checkbox for setting interactive algorithm
 let algContainer = ''; // Let for keeping the id of the container to which the inserted algorithm refers
 
 close2.onclick = function() {
@@ -26,16 +24,17 @@ confButton1.onclick = function() {
     * Author: Elena Karelina
     */
     let keepContainer = 'add-alg-'+ algContainer;
-    algName = inputName1.value;
+    console.log(0 + checkboxInteractive.checked);
+    let algName = inputName1.value; // Let for keeping the algorithm's name which has been input
     if(algName === "")
         alert('Необходимо ввести имя алгоритма');
     else {
-        algDesrcription = inputDescription1.value;
-        algDifficulty = inputDifficulty.value;
+        let algDescription = inputDescription1.value; // Let for keeping the algorithm's description which has been input
+        let algDifficulty = inputDifficulty.value; // Let for keeping the algorithm's difficulty which has been input
         let xhr = new XMLHttpRequest(); // Creating new HTTP request
         xhr.open("POST", "include/alg_add.php", true); // Setting destination and type
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Setting encoding
-        xhr.send('name=' + encodeURIComponent(algName) + '&descr=' + encodeURIComponent(algDesrcription)
+        xhr.send('name=' + encodeURIComponent(algName) + '&descr=' + encodeURIComponent(algDescription)
             + '&diff=' + encodeURIComponent(algDifficulty) + '&cont=' + encodeURIComponent(algContainer)); // Sending
         // the container's name and description
         xhr.onreadystatechange = function () { // Waiting for the server's answer

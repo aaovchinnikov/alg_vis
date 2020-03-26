@@ -173,6 +173,8 @@ require_once 'include/container_list.php';
                 <textarea name="Text1" cols="40" rows="10" class="input-str" id="str-inp-alg-info"></textarea>
                 <div class="hint" id="alg-dif">Сложность алгоритма</div>
                 <input class="input-str" id="str-inp-alg-dif" type="text">
+                <div class="hint" id="alg-inter">Сделать интерактивным</div>
+                <input id="inp-alg-inter" type="checkbox">
                 <btn class="confirm" id="conf1">OK</btn>
             </div>
             <div class="modal-footer">
