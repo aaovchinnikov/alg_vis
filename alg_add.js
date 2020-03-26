@@ -59,10 +59,7 @@ confButton1.onclick = function() {
                 }
             }
         };
-        inputName1.value = '';
-        inputDescription1.value = '';
-        inputDifficulty.value = '';
-        dialogAddAlg.style.display = 'none';
+        cleanDialogAdd();
     }
 };
 
@@ -82,9 +79,9 @@ function cleanDialogAdd() {
     * Input parameter: none. Output parameter: none.
     * Author: Elena Karelina.
     */
-    dialogAddAlg.style.display = 'none';
     inputName1.value = '';
     inputDescription1.value = '';
     inputDifficulty.value = '';
     dialogAddAlg.style.display = 'none';
+    checkboxInteractive.checked = false;
 }
