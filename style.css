@@ -171,9 +171,13 @@ body {
 /* Link to docs */
 #info-symbol {
     position: absolute;
-    bottom: 0;
-    left: 0.5%;
-    color: white;
-    text-decoration: none;
+    top: 0.5%;
+    right: 0.5%;
+    color: #333;
     font-size: larger;
+    cursor: pointer;
+}
+
+#info-symbol:active {
+    color: white;
 }
