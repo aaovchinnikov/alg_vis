@@ -63,6 +63,11 @@ body {
     margin: 12px 0;
 }
 
+#login_btn:active {
+    background-color:rgb(187, 187, 216);
+    transform: scale(1.03);
+}
+
 /* Username area */
 #login-username {
     background: transparent;

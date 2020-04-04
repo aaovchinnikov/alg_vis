@@ -19,6 +19,10 @@
     height: 23.33px;
 }
 
+#scene-menu {
+    height: 46.66px;
+}
+
 /* Display context menu */
 .context-menu--active {
     display: block;

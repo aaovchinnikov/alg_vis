@@ -36,14 +36,14 @@
     box-shadow: 0px 6px 0px rgb(130, 130, 165);
 }
 
-#btn-next-scene:active, #btn-prev-scene:active {
+#btn-next-scene:active, #btn-prev-scene:active, #op_button:active, #no-alg:active, #no-alg2:active, #watch-scenes:active {
     background-color:rgb(187, 187, 216);
     transform: scale(1.03);
 }
 
 #btn-next-scene:disabled, #btn-prev-scene:disabled {
     color: gray;
-    background-color: rgb(200, 200, 200);
+    background-color: rgb(230, 230, 230);
 }
 
 .timing {

@@ -21,7 +21,7 @@
 <!--Student mode-->
 <div class="operator noselect">
     <div id="header">
-        <div id="add-scene" class="plus-scene">+Добавить сцену</div>
+        <i class="far fa-question-circle"></i>
     </div>
         <!--Drawing window-->
         <div id="drawing">
