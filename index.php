@@ -21,7 +21,7 @@
 <!--Student mode-->
 <div class="operator noselect">
     <div id="header">
-        <i class="far fa-question-circle"></i>
+        <a href="https://docs.google.com/document/d/1XLAZdkhXMICz04Prm55il91juayJTq0PcrHI58SgI8U/edit?usp=sharing" id="info-symbol" target="_blank">&#x1f6c8;</a>
     </div>
         <!--Drawing window-->
         <div id="drawing">
