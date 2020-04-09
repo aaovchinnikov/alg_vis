@@ -6,7 +6,7 @@
     box-shadow: 1px 1px 2px #cfcfcf;
     font-family: "montserrat";
     font-size: 14px;
-    height: 70px;
+    height: 90px;
     padding: 12px 0;
     position: absolute;
     width: 200px;
@@ -16,11 +16,11 @@
 }
 
 #my-menu-student {
-    height: 23.33px;
+    height: 38.33px;
 }
 
 #scene-menu {
-    height: 46.66px;
+    height: 48.66px;
 }
 
 /* Display context menu */
