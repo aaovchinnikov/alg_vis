@@ -1,4 +1,3 @@
-let dialogEditContainer = document.getElementById('dialog-edit-container'); // Get modal element
 let close4 = document.getElementById("cross4"); // The modal window's cross
 let confButton4 = document.getElementById("conf4"); // Button OK of the modal window
 let inputName4 = document.getElementById("str-edit-container-name"); // String input for editting a container's name
@@ -74,6 +73,9 @@ confButton4.onclick = function () {
                 let result = xhr.responseText;
                 if (result != "1") { // If the inserting into database was not successful
                     alert('При изменении информации в базе данных произошла ошибка'); // Informing the user about it
+                } else {
+                    let containerString = document.getElementById(containerId4);
+                    containerString.innerHTML = containerName4;
                 }
             }
         }

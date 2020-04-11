@@ -79,7 +79,10 @@ confButton3.onclick = function () {
             if (xhr.readyState == 4) { // The answer has been got
                 if (xhr.status == 200) { // The server's returned code 200 (success)
                     let result = xhr.responseText;
-                    if (result != "1") { // If the inserting into database was not successful
+                    if (result == "1") { // If the inserting into database was not successful
+                        let editedAlgorithm = document.getElementById('alg-' + algId3);
+                        editedAlgorithm.innerHTML = algName3;
+                    } else {
                         alert('При изменении информации в базе данных произошла ошибка'); // Informing the user about it
                     }
                 }
